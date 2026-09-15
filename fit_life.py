@@ -21,8 +21,8 @@ while True:
             print("Вес должен быть больше 0")
             continue
 
-        user_height = float(input("Введи свой рост(В метрах): "))
-        user_height = user_height.replace(',', '.')
+        user_height = input("Введи свой рост(В метрах): ").replace(',', '.')
+        user_height = float(user_height)
         if user_height <= 0:
             print("Рост должен быть больше 0")
             continue
