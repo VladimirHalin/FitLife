@@ -1,4 +1,5 @@
-#Константы
+
+# Константы для расчётов
 WATER_PER_KG = 30
 ML_IN_LITER = 1000
 
@@ -6,10 +7,8 @@ ML_IN_LITER = 1000
 print("Добро пожаловать в Fit Life!")
 print()
 
-
-#Данные пользователя
-user_name = input("Привет! Введи своё имя: " ).title()
-#Проверка, вводит ли человек цифры или буквы
+# Ввод данных
+user_name = input("Привет! Введи своё имя: ").title()
 while True:
     try:
         user_age = int(input("Введи свой возраст: "))
@@ -17,14 +16,13 @@ while True:
             print("Возраст должен быть больше 0")
             continue
 
-
         user_weight = float(input("Введи свой вес (В кг): ").replace(',', '.'))
         if user_weight <= 0:
             print("Вес должен быть больше 0")
             continue
 
-
-        user_height = float(input("Введи свой рост(В метрах): ").replace(',', '.'))
+        user_height = float(input("Введи свой рост(В метрах): "))
+        user_height = user_height.replace(',', '.')
         if user_height <= 0:
             print("Рост должен быть больше 0")
             continue
@@ -32,19 +30,14 @@ while True:
         break
     except ValueError:
         print("Можно вводить только цифры!")
-
-
-#Рассчёт Индекса Массы Тела
+# Рассчёт ИМТ
 bmi = round(user_weight / (user_height ** 2), 1)
 
-
-#Рассчёт нормы воды
+# Расчёт нормы воды
 water_ml = user_weight * WATER_PER_KG
-water_l = round(water_ml / ML_IN_LITER , 2 )
-
-
-#Вывод данных
-print(f"""Отчет для пользователя: {user_name} ({user_age} г). 
+water_l = round(water_ml / ML_IN_LITER, 2)
+# Вывод данных
+print(f"""Отчет для пользователя: {user_name} ({user_age} г).
 Твой Индекс Массы Тела: {bmi}
 Рекомендуемая норма воды {water_l} л. в день
 
